@@ -8,12 +8,14 @@
 }
 
 .title{
-  color:rgb(206, 196, 196);  
-}
+    color:rgb(206, 196, 196);  
+  }
+
 .textarea{
     display: block;
     width: 700px;
     height: 150px;
+    font-size: 20px;
 }
 .keyboard {
     width: 705px;
@@ -41,7 +43,7 @@
     background-color: rgb(136, 125, 125);
 }
 
-.key:active{
+.active{
     background:rgb(168, 165, 165);
 }
 
@@ -87,3 +89,10 @@ width: 330px;
 .del{
   width: 50px;
 }
+ .backslash{
+    content: "\ ";
+ }
+ 
+ .backtick{
+    content: "`";
+ }
