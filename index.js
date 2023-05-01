@@ -27,7 +27,7 @@ wrapper.innerHTML = ` <h1 class="title">RSSchool Virtual keyboard</h1>
   <textarea class="textarea" rows="5" cols="50"></textarea>
   <div class="keyboard">
       <div class="row row-1">
-          <span class="key"></span>
+          <span class="key">${"`"}</span>
           <span class="key">1</span>
           <span class="key">2</span>
           <span class="key">3</span>
@@ -93,7 +93,7 @@ wrapper.innerHTML = ` <h1 class="title">RSSchool Virtual keyboard</h1>
           <span class="key ctrlleft">Ctrl</span>
           <span class="key win">Win</span>
           <span class="key altleft">Alt</span>
-          <span class="key space"> </span>
+          <span class="key space">${" "}</span>
           <span class="key altright">Alt</span>
           <span class="key arrowleft">←</span>
           <span class="key arrowdown">↓</span>
@@ -105,7 +105,7 @@ wrapper.innerHTML = ` <h1 class="title">RSSchool Virtual keyboard</h1>
   <p class="lang">Для переключения языка нажмите левые ctrl+alt</p>`;
 
 bodyPage.append(wrapper);
-const keyboard = document.querySelector(".keyboard");
+// const keyboard = document.querySelector(".keyboard");
 const textArea = document.querySelector(".textarea");
 const keys = document.querySelectorAll(".key");
 // const tab = document.querySelector(".tab");
@@ -116,6 +116,8 @@ const shiftLeft = document.querySelector(".shiftleft");
 const shiftRight = document.querySelector(".shiftright");
 // const altLeft = document.querySelector(".alttleft");
 // const altRight = document.querySelector(".altright");
+const ctrlRight = document.querySelector(".ctrlright");
+const ctrlLeft = document.querySelector(".ctrlleft");
 // const del = document.querySelector(".del");
 // const backspace = document.querySelector(".backspace ");
 // const enter = document.querySelector(".tab");
@@ -140,6 +142,12 @@ window.addEventListener("keydown", (e) => {
     if (e.code === "ShiftRight") {
       shiftLeft.classList.remove("active");
     }
+    if (e.code === "ControlLeft") {
+      ctrlRight.classList.remove("active");
+    }
+    if (e.code === "ControlRight") {
+      ctrlLeft.classList.remove("active");
+    }
     if (e.code === "CapsLock") {
       capsLock.classList.toggle("active");
     }
@@ -152,7 +160,6 @@ window.addEventListener("keyup", (e) => {
       e.key === keys[i].getAttribute("loverCasename")
     ) {
       // keys[i].classList.remove(".active");
-      // keys[i].classList.add(".remove");
     }
     if (e.code === "Space") {
       space.classList.remove("active");
@@ -162,24 +169,29 @@ window.addEventListener("keyup", (e) => {
     }
     if (e.code === "ShiftRight") {
       shiftLeft.classList.remove("active");
-      //  shiftLeft.classList.remove(".remove");
     }
     setTimeout(() => keys[i].classList.remove("active"), 1000);
   }
 });
 /* -----------------------------Mouse-------------------------------*/
-keyboard.addEventListener("click", (e) => {
-  for (let i = 0; i < keys.length; i += 1) {
-    // const kEy = keys[i].getAttribute("keyname");
-    if (
-      e.key === keys[i].getAttribute("keyname") ||
-      e.key === keys[i].getAttribute("loverCasename")
-    ) {
-      keys[i].classList.add("active");
-      textArea.value += e.key;
-      // textArea.value += String.fromCharCode(action);
-    }
+window.addEventListener("mousedown", (event) => {
+  event.preventDefault();
+  const text = [];
+  // for (let i = 0; i < keys.length; i += 1) {
+  if (event.target.classList.contains("key")) {
+    text.push(event.target.innerText);
   }
+  textArea.innerHTML += text;
+  //  if (
+  //   e.key === keys[i].getAttribute("keyname") ||
+  //   e.key === keys[i].getAttribute("loverCasename")
+  //   ) {
+  // console.log(keys[i].getAttribute("loverCasename"));
+  //    keys[i].classList.add("active");
+  // const action = e.fromCharCode;
+  // textArea.value += String.fromCharCode(action);
+  //  }
+  //  }
 });
 // function handleClick(event) {
 // const action = event.target.dataset.keyname;
