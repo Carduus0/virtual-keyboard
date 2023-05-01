@@ -175,7 +175,6 @@ window.addEventListener("keyup", (e) => {
 });
 /* -----------------------------Mouse-------------------------------*/
 window.addEventListener("mousedown", (event) => {
-  event.preventDefault();
   const text = [];
   // for (let i = 0; i < keys.length; i += 1) {
   if (event.target.classList.contains("key")) {
@@ -197,7 +196,7 @@ window.addEventListener("mousedown", (event) => {
 // const action = event.target.dataset.keyname;
 // textArea.value += String.fromCharCode(action);
 //  const action = event.dataset.keyname;
-//  textArea.value += action;
+// textArea.value += action;
 /// }
 
 // keys.forEach((item) => item.addEventListener("click", handleClick));
