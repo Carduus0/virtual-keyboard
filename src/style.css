@@ -1,0 +1,109 @@
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.title{
+    color:rgb(206, 196, 196);  
+  }
+
+.textarea{
+    display: block;
+    width: 700px;
+    height: 150px;
+    font-size: 20px;
+}
+.keyboard {
+    width: 705px;
+    margin: 30px auto;
+    border: 2px solid gray;
+}
+.row {
+    display: flex;
+}
+
+.key {
+    text-align: center;
+    cursor: pointer;
+    user-select: none;
+    transition: border-radius 0.4s, background-color 0.4s;
+    width: 40px;
+    height: 40px;
+    margin: 3px;
+    background: rgb(86, 84, 84);
+    color: #fff;
+    border-radius: 3px;
+}
+
+.key:hover{
+    background-color: rgb(136, 125, 125);
+}
+
+.active{
+    animation: active_animation 0.3s linear;
+    box-shadow:2px 2px 2px black;
+}
+@keyframes active_animation{
+    0%{
+        background-color: rgb(136, 125, 125);
+        color:#ece1e1 ;
+    }
+    100%{
+        background-color: rgb(86, 84, 84);
+        color:#fff ;
+    }
+}
+
+.tab,
+.win,
+.space,
+.del,
+.capslock,
+.backspace,
+.shiftleft,
+.shiftright,
+.altleft,
+.altright,
+.enter,
+.ctrlleft,
+.ctrlright,
+.arrowleft,
+.arrowright,
+.arrowup,
+.arrowdown{
+    font-weight: 400;
+    background: rgb(61, 60, 60);
+}
+
+.space{
+width: 330px;
+}
+
+.backspace{
+    width: 100px;
+}
+
+.shiftleft,
+.shiftright,
+.capslock{
+    width: 95px;
+}
+
+.enter{
+    width: 90px;
+}
+.tab,
+.del{
+  width: 50px;
+}
+ .backslash{
+    content: "\ ";
+ }
+ 
+ .backtick{
+    content: "`";
+ }
