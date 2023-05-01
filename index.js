@@ -1,4 +1,4 @@
-const body = document.querySelector(".page");
+const bodyPage = document.body;
 const wrapper = document.createElement("div");
 /* const row1 = [
   {
@@ -19,14 +19,7 @@ const wrapper = document.createElement("div");
   "Equal",
   "Backspace",
 ];
-// const row2 = [];
-// const row3 = [];
-// const row4 = [];
-// const row5 = [];
- document.onkeypress = function (e) {
-  row.push(e.code);
-  console.log(row);
-}; */
+ */
 
 wrapper.className = "wrapper";
 
@@ -111,8 +104,9 @@ wrapper.innerHTML = ` <h1 class="title">RSSchool Virtual keyboard</h1>
   <p class="description">Клавиатура создана в операционной системе Windows</p>
   <p class="lang">Для переключения языка нажмите левые ctrl+alt</p>`;
 
-body.append(wrapper);
-// const keyboard = document.querySelector(".keyboard");
+bodyPage.append(wrapper);
+const keyboard = document.querySelector(".keyboard");
+const textArea = document.querySelector(".textarea");
 const keys = document.querySelectorAll(".key");
 // const tab = document.querySelector(".tab");
 const space = document.querySelector(".space");
@@ -135,19 +129,19 @@ window.addEventListener("keydown", (e) => {
       e.key === keys[i].getAttribute("keyname") ||
       e.key === keys[i].getAttribute("loverCasename")
     ) {
-      keys[i].classList.add(".active");
+      keys[i].classList.add("active");
     }
     if (e.code === "Space") {
-      space.classList.add(".active");
+      space.classList.add("active");
     }
     if (e.code === "ShiftLeft") {
-      shiftRight.classList.remove(".active");
+      shiftRight.classList.remove("active");
     }
     if (e.code === "ShiftRight") {
-      shiftLeft.classList.remove(".active");
+      shiftLeft.classList.remove("active");
     }
     if (e.code === "CapsLock") {
-      capsLock.classList.toggle(".active");
+      capsLock.classList.toggle("active");
     }
   }
 });
@@ -157,23 +151,52 @@ window.addEventListener("keyup", (e) => {
       e.key === keys[i].getAttribute("keyname") ||
       e.key === keys[i].getAttribute("loverCasename")
     ) {
-      keys[i].classList.remove(".active");
-      keys[i].classList.add(".remove");
+      // keys[i].classList.remove(".active");
+      // keys[i].classList.add(".remove");
     }
     if (e.code === "Space") {
-      space.classList.remove(".active");
-      space.classList.add(".remove");
+      space.classList.remove("active");
     }
     if (e.code === "ShiftLeft") {
-      shiftRight.classList.remove(".active");
-      shiftRight.classList.remove(".remove");
+      shiftRight.classList.remove("active");
     }
     if (e.code === "ShiftRight") {
-      shiftLeft.classList.remove(".active");
-      shiftLeft.classList.remove(".remove");
+      shiftLeft.classList.remove("active");
+      //  shiftLeft.classList.remove(".remove");
     }
-    setTimeout(() => keys[i].classList.remove(".remove"), 200);
+    setTimeout(() => keys[i].classList.remove("active"), 1000);
   }
 });
+/* -----------------------------Mouse-------------------------------*/
+keyboard.addEventListener("click", (e) => {
+  for (let i = 0; i < keys.length; i += 1) {
+    // const kEy = keys[i].getAttribute("keyname");
+    if (
+      e.key === keys[i].getAttribute("keyname") ||
+      e.key === keys[i].getAttribute("loverCasename")
+    ) {
+      keys[i].classList.add("active");
+      textArea.value += e.key;
+      // textArea.value += String.fromCharCode(action);
+    }
+  }
+});
+// function handleClick(event) {
+// const action = event.target.dataset.keyname;
+// textArea.value += String.fromCharCode(action);
+//  const action = event.dataset.keyname;
+//  textArea.value += action;
+/// }
+
+// keys.forEach((item) => item.addEventListener("click", handleClick));
+/* document.querySelectorAll(".key").forEach((elem) => {
+  const el = elem;
+  el.onclick = (event) => {
+    document.querySelectorAll(".key").forEach((element) => {
+      element.classList.remove(".active");
+    });
+    const code = event.getAttribute("keyname");
+  };
+}); */
 
 /*eslint-disable*/

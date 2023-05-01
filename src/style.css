@@ -36,7 +36,7 @@
     margin: 3px;
     background: rgb(86, 84, 84);
     color: #fff;
-    border-radius: 2px;
+    border-radius: 3px;
 }
 
 .key:hover{
@@ -44,7 +44,18 @@
 }
 
 .active{
-    background:rgb(168, 165, 165);
+    animation: active_animation 0.3s linear;
+    box-shadow:2px 2px 2px black;
+}
+@keyframes active_animation{
+    0%{
+        background-color: rgb(136, 125, 125);
+        color:#ece1e1 ;
+    }
+    100%{
+        background-color: rgb(86, 84, 84);
+        color:#fff ;
+    }
 }
 
 .tab,
